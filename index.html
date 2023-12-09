@@ -49,24 +49,38 @@
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item active">
-					<a class="nav-link" href="#">Home</a>
+					<a class="nav-link" id="navHome" href="#">Home</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">About</a>
+					<a class="nav-link" id="navAbout" href="#">About</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Services</a>
+					<a class="nav-link" id="navServices" href="#">Services</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Team</a>
+					<a class="nav-link" id="navTeam" href="#">Team</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Connect</a>
+					<a class="nav-link" id="navConnect" href="#">Connect</a>
 				</li>
 			</ul>
 		</div>
 	</div>
 </nav>
+
+<script>
+	function trackNavClick(eventLabel) {
+		gtag('event', 'navigation_click', {
+			'event_category': 'Navigation',
+			'event_label': eventLabel
+		});
+	}
+	
+	document.getElementById('navHome').addEventListener('click', function() { trackNavClick('Home'); });
+	document.getElementById('navAbout').addEventListener('click', function() { trackNavClick('About'); });
+	document.getElementById('navServices').addEventListener('click', function() { trackNavClick('Services'); });
+	// ... repeat for other items ...
+	</script>	
 
 <!--- Image Slider -->
 <div id="slides" class="carousel slide" data-ride="carousel" data-aos="fade-up"
